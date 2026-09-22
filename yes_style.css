@@ -1,0 +1,32 @@
+* { box-sizing: border-box; }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+    margin: 0;
+    padding: 16px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #f9e3e3, #f5c7d8);
+    font-family: Georgia, 'Times New Roman', serif;
+    text-align: center;
+}
+
+.container { width: 100%; max-width: 420px; }
+
+.header_text {
+    margin: 0 0 20px;
+    font-size: clamp(2rem, 9vw, 3em);
+    line-height: 1.15;
+    color: #d32f2f;
+}
+
+.gif_container img {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 18px;
+}

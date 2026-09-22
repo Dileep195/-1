@@ -1,0 +1,165 @@
+* { box-sizing: border-box; }
+
+html, body { width: 100%; min-height: 100%; }
+
+body {
+    margin: 0;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #2b1932 url('prom-background.jpg') center center / cover no-repeat;
+    font-family: Georgia, 'Times New Roman', serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 42%, rgba(255, 213, 221, .10), rgba(36, 12, 45, .10) 70%, rgba(10, 4, 18, .24));
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    padding: 14px;
+    position: relative;
+    z-index: 2;
+}
+
+.proposal-card {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 420px;
+    padding: 52px 18px 28px;
+    border: 2px solid rgba(255, 238, 241, .86);
+    border-radius: 26px;
+    background: linear-gradient(145deg, rgba(255, 225, 229, .62), rgba(255, 193, 207, .42));
+    box-shadow: 0 0 28px rgba(255, 158, 185, .42), inset 0 0 30px rgba(255,255,255,.16);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    text-align: center;
+}
+
+.proposal-card::before,
+.proposal-card::after {
+    content: '♡';
+    position: absolute;
+    color: rgba(255,255,255,.95);
+    font-size: 29px;
+    font-family: cursive;
+}
+
+.proposal-card::before { left: 18px; top: 17px; }
+.proposal-card::after { right: 18px; top: 17px; }
+
+.corner-heart { display: none; }
+
+h1 {
+    margin: 0 auto;
+    max-width: 390px;
+    color: #5b121c;
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    font-size: clamp(2rem, 9vw, 2.7rem);
+    line-height: 1.16;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.35);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: 88%;
+    margin: 23px auto 20px;
+    color: #fff;
+    font-size: 22px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    height: 1px;
+    flex: 1;
+    background: rgba(255,255,255,.82);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    margin-top: 8px;
+}
+
+.yes-button,
+.no-button {
+    width: min(84vw, 310px);
+    min-height: 64px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: transform .22s ease, box-shadow .22s ease, font-size .22s ease;
+}
+
+.yes-button {
+    border: 2px solid rgba(255,255,255,.92);
+    background: linear-gradient(135deg, #f43b70, #e91d5d);
+    color: #fff;
+    box-shadow: 0 0 18px rgba(255, 63, 126, .7), inset 0 0 14px rgba(255,255,255,.15);
+}
+
+.no-button {
+    border: 2px solid rgba(255,255,255,.9);
+    background: rgba(255, 239, 239, .82);
+    color: #55151d;
+    box-shadow: 0 0 12px rgba(255,255,255,.3);
+}
+
+.yes-button:active,
+.no-button:active { transform: scale(.97); }
+.yes-button:disabled { cursor: wait; opacity: .86; transform: none; }
+
+.hint {
+    margin: 21px 0 0;
+    color: #fff;
+    font-family: 'Brush Script MT', 'Segoe Script', cursive;
+    font-size: 1.55rem;
+    text-shadow: 0 2px 8px rgba(71, 16, 42, .55);
+}
+
+/* The invitation is intentionally designed for phone screens. */
+@media (min-width: 700px) {
+    body::after {
+        content: 'Please open this invitation on your phone ❤️';
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        z-index: 20;
+        padding: 30px;
+        background: rgba(24, 8, 28, .94);
+        color: white;
+        font-family: Georgia, serif;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}
+
+@media (max-height: 700px) and (max-width: 699px) {
+    .container { padding: 9px; }
+    .proposal-card { padding-top: 43px; padding-bottom: 22px; }
+    h1 { font-size: 1.85rem; }
+    .divider { margin: 18px auto 16px; }
+    .yes-button, .no-button { min-height: 57px; font-size: 1.3rem; }
+    .hint { margin-top: 15px; font-size: 1.35rem; }
+}
